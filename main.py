@@ -34,7 +34,7 @@ image_path = fd.askopenfilename()
 if not os.path.exists(image_path):
     raise FileNotFoundError("image not found")
 print(image_path)
-
+    
 image = Image.open(image_path)
 pixels = list(image.getdata())
 width, height = image.size
@@ -51,8 +51,7 @@ def change_color(r, g, b):
     pyautogui.click(cord.colorpickerB_x, cord.colorpickerB_y)
     pyautogui.typewrite(str(b))
 
-def draw_image_by_colors(pixels):
-    start_x, start_y = pyautogui.position()
+def draw_image_by_colors(pixels,start_x,start_y):
     color_positions = {}
 
     for y in range(height):
@@ -87,6 +86,12 @@ def draw_image_by_colors(pixels):
             else:
                 pyautogui.click(start_x + x1, start_y + y1)
 
+def on_close():
+    global start_x, start_y
+    start_x = canvas.winfo_rootx()
+    start_y = canvas.winfo_rooty()
+    root.destroy()
+    
 root = tk.Tk()
 root.title("Close to start!")
 canvas = tk.Canvas(root, width=width, height=height)
@@ -94,6 +99,6 @@ canvas.pack()
 img = tk.PhotoImage(file=image_path)
 canvas.create_image(0, 0, anchor=tk.NW, image=img)
 root.bind('<B1-Motion>', on_drag)
+root.protocol("WM_DELETE_WINDOW", on_close)
 root.mainloop()
-
-draw_image_by_colors(pixels)
+draw_image_by_colors(pixels,start_x,start_y)
