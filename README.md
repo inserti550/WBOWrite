@@ -8,4 +8,4 @@
   3. Run start.bat, it will install all the necessary python components for the program to work
   4. After installation, a window will open to select an image, select any picture
   5. After selecting a picture, you will see a window showing the size of the picture
-  6. After closing the window with your picture, drawing will begin (in the first version of the program, the cursor is considered the starting point for drawing and not the window itself)
+  6. After closing the window with your picture, drawing will begin
