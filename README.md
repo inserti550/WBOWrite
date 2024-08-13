@@ -13,3 +13,4 @@
          4. Cursor size - cursor size for drawing, good numbers are 1 - 5, set at your discretion
   5. after specifying all the necessary parameters, click StartWBOWriter and wait for drawing to begin, after the second second drawing should begin, the speed of drawing, as well as the beginning, depends on the power of your computer
 
+my discord - zaaa52
